@@ -7,7 +7,7 @@ import sys
 import os
 import getopt
 import xml.dom.minidom
-from pysqlite2 import dbapi2 as sqlite
+import sqlite3 as sqlite
 
 VERSION = "1.2"
 DEFAULT_DATABASE = "./nmapdb.db"
