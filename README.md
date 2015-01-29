@@ -29,6 +29,8 @@ Use -c to create a database from the schema on the first run:
 
 ##examples
 
+### basic example with nmap
+
 Make nmap produce XML output:
 ```
 nmap -A -oX scanme.xml scanme.nmap.org
@@ -41,6 +43,8 @@ Then use nmapdb
 $ file myscan.db
 myscan.db: SQLite 3.x database
 ```
+
+### query examples
 
 Do manual queries:
 
