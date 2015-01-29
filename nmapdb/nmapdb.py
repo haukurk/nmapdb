@@ -1,15 +1,16 @@
-#!/usr/bin/env python
-#
-# nmapdb - Parse nmap's XML output files and insert them into an SQLite database
-# Copyright (c) 2012 Patroklos Argyroudis <argp at domain census-labs.com>
+"""
+Module originally taken from Patroklos Argyroudis.
+Now maintained by Haukur Kristinsson.
+License: MIT.
+"""
 
 import sys
 import os
 import getopt
 import xml.dom.minidom
-from pysqlite2 import dbapi2 as sqlite
+import sqlite3 as sqlite
 
-VERSION = "1.2"
+VERSION = "1.3"
 DEFAULT_DATABASE = "./nmapdb.db"
 
 true = 1
@@ -285,9 +286,5 @@ def main(argv, environ):
 
     if nodb_flag == false:
         conn.commit()
-
-if __name__ == "__main__":
-    main(sys.argv, os.environ)
-    sys.exit(0)
 
 # EOF
