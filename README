@@ -4,6 +4,14 @@ I coded this a while back (mid 2009) and have been using it since.  Some
 people I have shared nmapdb with have found it useful, so I am releasing it
 publicly.
 
+Installation:
+
+Install with PIP, from github:
+pip install --upgrade git+https://github.com/haukurk/nmapdb.git@haukur
+
+Or download and install with:
+python setup.py install
+
 Example usage:
 
 $ sudo nmap -A -oX scanme.xml scanme.nmap.org
