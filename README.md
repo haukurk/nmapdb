@@ -1,25 +1,18 @@
 nmapdb parses nmap's XML output files and inserts them into an SQLite database.
+====================
 
-I coded this a while back (mid 2009) and have been using it since.  Some
-people I have shared nmapdb with have found it useful, so I am releasing it
-publicly.
-
-Installation:
+#installation:
 
 Install with PIP, from github:
-pip install --upgrade git+https://github.com/haukurk/nmapdb.git@haukur
+```pip install --upgrade git+https://github.com/haukurk/nmapdb.git@haukur```
 
 Or download and install with:
-python setup.py install
+```python setup.py install```
 
-Example usage:
+#usage:
 
-$ sudo nmap -A -oX scanme.xml scanme.nmap.org
-
-Starting Nmap ...
-
-$ ls scanme.xml
-scanme.xml
+##summary:
+```
 $ ./nmapdb.py -h
 usage: ./nmapdb.py [options] <nmap output XML file(s)>
 options:
@@ -32,10 +25,24 @@ options:
      (-V) --version      output version number and exit
 
 Use -c to create a database from the schema on the first run:
+```
 
-$ ./nmapdb.py -c nmapdb.sql -d myscan.db scanme.xml
+##examples
+
+Make nmap produce XML output:
+```
+nmap -A -oX scanme.xml scanme.nmap.org
+nmap -T4 -oX privateips.xml 192.168.0.0/16
+```
+
+Then use nmapdb
+
+$ ./nmapdb -c nmapdb.sql -d myscan.db scanme.xml
 $ file myscan.db
 myscan.db: SQLite 3.x database
+
+Do manual queries:
+
 $ sqlite3 myscan.db
 SQLite version 3.7.7 ...
 sqlite> select * from hosts;
@@ -63,9 +70,5 @@ sqlite> select * from hosts inner join ports on hosts.ip=ports.ip where hosts.ip
 sqlite> select * from hosts inner join ports on hosts.ip=ports.ip where hosts.os_name like '%bsd%' and ports.port=22;
 aa.bb.91.25||foo.bar.org|ipv4|FreeBSD 7.0-STABLE|FreeBSD|95|7.X|1231841556|up||aa.bb.91.25|22|tcp|ssh|open|
 
-Feel free to fork, submit patches, whatever.
-
-Thanks to antonat and thomas for providing feedback.
-
-argp, Mon Apr 30 14:49:21 EEST 2012
+Forked from argp/nmapdb.
 
