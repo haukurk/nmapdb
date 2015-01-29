@@ -1,5 +1,7 @@
-nmapdb parses nmap's XML output files and inserts them into an SQLite database.
+nmapdb
 ====================
+
+nmapdb parses nmap's XML output files and inserts them into an SQLite (For now) database.
 
 #installation:
 
